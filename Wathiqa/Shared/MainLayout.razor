@@ -1,0 +1,51 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Color="Color.Primary" Fixed="true" Dense="true">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" />
+    </MudAppBar>
+   
+    <MudDrawer @bind-Open="@_drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
+        <MudDrawerHeader Style="background-color:Color.Primary;" Background="Color.Primary" Dense="true">
+            <MudText Typo="Typo.h6">Wathiqa</MudText>
+        </MudDrawerHeader>
+        <MudNavMenu>
+            <MudNavLink class="nav-link" href="">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </MudNavLink>
+            <MudNavLink class="nav-link" href="upload">
+                <span class="oi oi-cloud-upload" aria-hidden="true"></span> Upload Document
+            </MudNavLink>
+            <MudNavLink class="nav-link" href="fetchDocument">
+                <span class="oi oi-cloud-download" aria-hidden="true"></span> Fetch Document
+            </MudNavLink>
+            <MudNavLink class="nav-link" href="fetchDocument">
+                <span class="oi oi-signal" aria-hidden="true"></span> Sign Document
+            </MudNavLink>
+            <MudNavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch Document
+            </MudNavLink>
+            
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent Class="pt-16 px-16">
+        @Body
+    </MudMainContent>
+</MudLayout>
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
+
+
+
